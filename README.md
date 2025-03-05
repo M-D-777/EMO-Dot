@@ -30,7 +30,7 @@ EMO Dot 1.28(小豆)，采用7块2的ESP32 C3 Supermini开发板，高颜值玻�
 | 1.28 lcd&Audio扩展板 | 屏幕背板及音频PCB | [立创开源](https://item.taobao.com/item.htm?id=728806967199) | 17|
 | 喇叭 | 2415 | [淘宝链接](https://item.taobao.com/item.htm?id=728806967199) | 2.1|
 | 麦克风 | 4015 | [淘宝链接](https://item.taobao.com/item.htm?id=764128372417) | 0.28|
-| mx1.25转8pin线 | 两根 | [淘宝链接](https://www.example.com/project2) | 2|
+| mx1.25转杜邦线8pin | 两根 | [淘宝链接](https://www.example.com/project2) | 2|
 | 合计 |-|-| 48.58 |
 
 #### 备注
@@ -56,7 +56,7 @@ C3版本无语音唤醒，必须触摸小豆机器人头顶触摸区域才能唤
 
 外壳使用拓竹P1SC打印机打印，去年双十一3400购入，真香！
 
-模型链接：
+makerworld模型链接：[EMO Dot 小豆表情机器人MakerWorld](https://makerworld.com.cn/zh/models/1003119-emo-dot-xiao-dou-biao-qing-ji-qi-ren)
 
 ## 固件烧录与编译
 ### 固件烧录
