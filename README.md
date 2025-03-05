@@ -27,7 +27,7 @@ EMO Dot 1.28(小豆)，采用7块2的ESP32 C3 Supermini开发板，高颜值玻�
 | ---- | ---- | ---- | ---- |
 | ESP32 supermini C3 | C3开发板 | [淘宝链接](https://item.taobao.com/item.htm?id=748324039194) | 7.2|
 | 1.28LCD | 带玻璃盖板 | [淘宝链接](https://item.taobao.com/item.htm?&id=694336841904) | 20|
-| 1.28 lcd&Audio扩展板 | 屏幕背板及音频PCB | [立创开源](https://item.taobao.com/item.htm?id=728806967199) | 17|
+| 1.28 lcd&Audio扩展板 | 屏幕背板及音频PCB | [立创开源]( https://oshwhub.com/xglaaa/emodot-xiaodou) | 17|
 | 喇叭 | 2415 | [淘宝链接](https://item.taobao.com/item.htm?id=728806967199) | 2.1|
 | 麦克风 | 4015 | [淘宝链接](https://item.taobao.com/item.htm?id=764128372417) | 0.28|
 | mx1.25转杜邦线8pin | 两根 | [淘宝链接](https://www.example.com/project2) | 2|
@@ -56,7 +56,7 @@ C3版本无语音唤醒，必须触摸小豆机器人头顶触摸区域才能唤
 
 外壳使用拓竹P1SC打印机打印，去年双十一3400购入，真香！
 
-makerworld模型链接：[EMO Dot 小豆表情机器人MakerWorld](https://makerworld.com.cn/zh/models/1003119-emo-dot-xiao-dou-biao-qing-ji-qi-ren)
+MakerWorld模型链接：[EMO Dot 小豆表情机器人](https://makerworld.com.cn/zh/models/1003119-emo-dot-xiao-dou-biao-qing-ji-qi-ren)
 
 ## 固件烧录与编译
 ### 固件烧录
@@ -71,7 +71,65 @@ makerworld模型链接：[EMO Dot 小豆表情机器人MakerWorld](https://maker
 开源代码见我fork的[xiaozhi-esp32](https://github.com/M-D-777/xiaozhi-esp32)，如有需要可按照xiaozhi-esp32文档自行编译烧写。
 
 后续我也会向xiaozhi-esp32官方仓库提交pull requeset，希望虾哥能审核通过。
+#### 编译注意事项
+    因Supermini C3和S3的flash均只有4MB，所有相关flash需重新配置，同时S3还需注意PSRAM和LOG等级。
 
+#### C3版本编译
+[C3 版本menuconfig注意事项](https://github.com/M-D-777/xiaozhi-esp32/blob/emo-dot/main/boards/emo-dot-c3-1.28/README.md)
+#### S3版本编译
+[S3 版本menuconfig注意事项](https://github.com/M-D-777/xiaozhi-esp32/blob/emo-dot/main/boards/emo-dot-s3-1.28/README.md)
+
+## 硬件连线
+### C3版本
+[emo-dot-c3-1.28 conifg](https://github.com/M-D-777/xiaozhi-esp32/blob/emo-dot/main/boards/emo-dot-c3-1.28/config.h)
+``` 
+#define AUDIO_I2S_GPIO_MCLK GPIO_NUM_NC
+#define AUDIO_I2S_GPIO_WS   GPIO_NUM_10
+#define AUDIO_I2S_GPIO_BCLK GPIO_NUM_8
+#define AUDIO_I2S_GPIO_DIN  GPIO_NUM_7
+#define AUDIO_I2S_GPIO_DOUT GPIO_NUM_20
+
+#define AUDIO_CODEC_PA_PIN       GPIO_NUM_21//GPIO_NUM_1
+#define AUDIO_CODEC_I2C_SDA_PIN  GPIO_NUM_5
+#define AUDIO_CODEC_I2C_SCL_PIN  GPIO_NUM_6
+
+#define BOOT_BUTTON_GPIO        GPIO_NUM_9
+
+#define DISPLAY_BACKLIGHT_PIN GPIO_NUM_0
+#define DISPLAY_BACKLIGHT_OUTPUT_INVERT false //最新硬件已更新为高电平有效
+
+#define DISPLAY_SPI_SCLK_PIN    GPIO_NUM_3
+#define DISPLAY_SPI_MOSI_PIN    GPIO_NUM_4
+#define DISPLAY_SPI_DC_PIN      GPIO_NUM_1
+#define DISPLAY_SPI_CS_PIN      GPIO_NUM_2
+
+```
+### S3版本
+[emo-dot-S3-1.28 conifg](https://github.com/M-D-777/xiaozhi-esp32/blob/emo-dot/main/boards/emo-dot-s3-1.28/config.h)
+```
+#define AUDIO_I2S_GPIO_MCLK GPIO_NUM_NC
+#define AUDIO_I2S_GPIO_WS   GPIO_NUM_5
+#define AUDIO_I2S_GPIO_BCLK GPIO_NUM_3
+#define AUDIO_I2S_GPIO_DIN  GPIO_NUM_4
+#define AUDIO_I2S_GPIO_DOUT GPIO_NUM_6
+
+#define AUDIO_CODEC_PA_PIN       GPIO_NUM_7
+#define AUDIO_CODEC_I2C_SDA_PIN  GPIO_NUM_2
+#define AUDIO_CODEC_I2C_SCL_PIN  GPIO_NUM_1
+
+#define BUILTIN_LED_GPIO        GPIO_NUM_48
+#define BOOT_BUTTON_GPIO        GPIO_NUM_0
+
+#define DISPLAY_BACKLIGHT_PIN GPIO_NUM_9
+#define DISPLAY_BACKLIGHT_OUTPUT_INVERT false //最新硬件已更新为高电平有效
+
+#define DISPLAY_SPI_SCLK_PIN    GPIO_NUM_12
+#define DISPLAY_SPI_MOSI_PIN    GPIO_NUM_13
+#define DISPLAY_SPI_DC_PIN      GPIO_NUM_10
+#define DISPLAY_SPI_CS_PIN      GPIO_NUM_11
+#define DISPLAY_SPI_RESET_PIN   GPIO_NUM_NC
+
+```
 ## 后续规划
 * 更多的表情
 
