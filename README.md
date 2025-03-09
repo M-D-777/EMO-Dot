@@ -5,6 +5,11 @@
 
 EMO Dot 1.28(小豆)，采用7块2的ESP32 C3 Supermini开发板，高颜值玻璃盖板屏幕，3D打印外壳，具有表情显示，AI语音对话，英文学习等功能，角色及音色均可在小智AI后台配置。
 
+**2023年3月8日更新：**
+
+    为了解决带盖板屏幕缺货问题，我重新设计了一版小豆机器人结构，采用市面上常见的1.28不带盖板屏幕，这样物料成本更低，也更容易采购，降低大家的复刻难度。
+**MakerWorld模型链接：**[新版无需屏幕盖板的EMO Dot-小豆机器人](https://makerworld.com.cn/zh/models/1010915-wu-xu-ping-mu-gai-ban-de-emo-dot-xiao-dou-ji-qi-re)
+
 ## 项目特色
 * 总成本低于50元（C3版本）
 
@@ -30,13 +35,17 @@ EMO Dot 1.28(小豆)，采用7块2的ESP32 C3 Supermini开发板，高颜值玻�
 | 1.28 lcd&Audio扩展板 | 屏幕背板及音频PCB | [立创开源]( https://oshwhub.com/xglaaa/emodot-xiaodou) | 17|
 | 喇叭 | 2415 | [淘宝链接](https://item.taobao.com/item.htm?id=728806967199) | 2.1|
 | 麦克风 | 4015 | [淘宝链接](https://item.taobao.com/item.htm?id=764128372417) | 0.28|
-| mx1.25转杜邦线8pin | 两根 | [淘宝链接](https://www.example.com/project2) | 2|
+| mx1.25转杜邦线8pin | 两根 | [淘宝链接](https://item.taobao.com/item.htm?id=743491497341) | 2|
 | 合计 |-|-| 48.58 |
 
 #### 备注
     目前带玻璃盖板屏幕缺货中，价格可能有浮动，但是颜值没的说。
 
     后续会尝试出一个没有玻璃盖板的方案，敬请期待。
+    
+    2023年3月8日更新：
+
+    为了解决带盖板屏幕缺货问题，我重新设计了一版小豆机器人结构，采用市面上常见的1.28不带盖板屏幕，这样物料成本更低，也更容易采购，降低大家的复刻难度。
     
 ### S3版本
 | 型号 | 描述 | 链接 |价格 |
@@ -57,6 +66,8 @@ C3版本无语音唤醒，必须触摸小豆机器人头顶触摸区域才能唤
 外壳使用拓竹P1SC打印机打印，去年双十一3400购入，真香！
 
 MakerWorld模型链接：[EMO Dot 小豆表情机器人](https://makerworld.com.cn/zh/models/1003119-emo-dot-xiao-dou-biao-qing-ji-qi-ren)
+
+MakerWorld模型链接：[新版无需屏幕盖板的EMO Dot-小豆机器人](https://makerworld.com.cn/zh/models/1010915-wu-xu-ping-mu-gai-ban-de-emo-dot-xiao-dou-ji-qi-re)
 
 ## 固件烧录与编译
 ### 固件烧录
