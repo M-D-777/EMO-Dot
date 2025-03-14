@@ -80,7 +80,7 @@ light及dark对应lvgl的主题模式，分别对应背景为亮白和暗黑。
 | Supermini C3版 light 主题固件 | [下载](bin/EMO-Dot-C3-1.28-1.4.1_20250313_light.bin) |屏幕背光高电平有效|
 | Supermini C3版 dark 主题固件 | [下载](bin/EMO-Dot-C3-1.28-1.4.1_20250313_dark.bin) |屏幕背光高电平有效|
 | Supermini S3版 light 主题固件 | [下载](bin/EMO-Dot-S3-1.28-1.4.1_20250314_light.bin) |屏幕背光高电平有效|
-| Supermini S3版 Dark 主题固件 | [下载](bin/EMO-Dot-S3-1.28-1.4.1_20250314_dark.bin) |屏幕背光高电平有效|
+| Supermini S3版 dark 主题固件 | [下载](bin/EMO-Dot-S3-1.28-1.4.1_20250314_dark.bin) |屏幕背光高电平有效|
 
 ### 固件编译
 开源代码见我fork的[xiaozhi-esp32](https://github.com/M-D-777/xiaozhi-esp32)，如有需要可按照xiaozhi-esp32文档自行编译烧写。
