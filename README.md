@@ -5,7 +5,7 @@
 
 EMO Dot 1.28(小豆)，采用7块2的ESP32 C3 Supermini开发板，高颜值玻璃盖板屏幕，3D打印外壳，具有表情显示，AI语音对话，英文学习等功能，角色及音色均可在小智AI后台配置。
 
-**2023年3月8日更新：**
+**2025年3月8日更新：**
 
     为了解决带盖板屏幕缺货问题，我重新设计了一版小豆机器人结构，采用市面上常见的1.28不带盖板屏幕，这样物料成本更低，也更容易采购，降低大家的复刻难度。
 **MakerWorld模型链接：**[新版无需屏幕盖板的EMO Dot-小豆机器人](https://makerworld.com.cn/zh/models/1010915-wu-xu-ping-mu-gai-ban-de-emo-dot-xiao-dou-ji-qi-re)
@@ -75,8 +75,10 @@ MakerWorld模型链接：[新版无需屏幕盖板的EMO Dot-小豆机器人](ht
 
 | 文件名 | 下载链接 | 备注 |
 | ------ | -------- | -------- |
-| Supermini C3版固件 | [下载](bin/EMO-Dot-C3-1.28-1.4.1_20250305.bin) |屏幕背光低电平有效|
-| Supermini S3版固件 | [下载](bin/EMO-Dot-C3-1.28-1.4.1_20250305.bin) |屏幕背光低电平有效|
+| Supermini C3版 light 主题固件 | [下载](bin/EMO-Dot-C3-1.28-1.4.1_20250313_light.bin) |屏幕背光高电平有效|
+| Supermini C3版 dark 主题固件 | [下载](bin/EMO-Dot-C3-1.28-1.4.1_20250313_dark.bin) |屏幕背光高电平有效|
+| Supermini C3版 light 主题固件 | [下载](bin/EMO-Dot-S3-1.28-1.4.1_20250314_light.bin) |屏幕背光高电平有效|
+| Supermini C3版 Dark 主题固件 | [下载](bin/EMO-Dot-S3-1.28-1.4.1_20250314_dark.bin) |屏幕背光高电平有效|
 
 ### 固件编译
 开源代码见我fork的[xiaozhi-esp32](https://github.com/M-D-777/xiaozhi-esp32)，如有需要可按照xiaozhi-esp32文档自行编译烧写。
@@ -93,52 +95,56 @@ MakerWorld模型链接：[新版无需屏幕盖板的EMO Dot-小豆机器人](ht
 ## 硬件连线
 ### C3版本
 [emo-dot-c3-1.28 conifg](https://github.com/M-D-777/xiaozhi-esp32/blob/emo-dot/main/boards/emo-dot-c3-1.28/config.h)
+
+2025年3月8日更新接线顺序，方便接线：
+
 ``` 
-#define AUDIO_I2S_GPIO_MCLK GPIO_NUM_NC
-#define AUDIO_I2S_GPIO_WS   GPIO_NUM_10
-#define AUDIO_I2S_GPIO_BCLK GPIO_NUM_8
-#define AUDIO_I2S_GPIO_DIN  GPIO_NUM_7
-#define AUDIO_I2S_GPIO_DOUT GPIO_NUM_20
-
-#define AUDIO_CODEC_PA_PIN       GPIO_NUM_21//GPIO_NUM_1
-#define AUDIO_CODEC_I2C_SDA_PIN  GPIO_NUM_5
-#define AUDIO_CODEC_I2C_SCL_PIN  GPIO_NUM_6
-
-#define BOOT_BUTTON_GPIO        GPIO_NUM_9
+#define DISPLAY_SPI_MOSI_PIN    GPIO_NUM_4
+#define DISPLAY_SPI_SCLK_PIN    GPIO_NUM_3
+#define DISPLAY_SPI_CS_PIN      GPIO_NUM_2
+#define DISPLAY_SPI_DC_PIN      GPIO_NUM_1
+#define DISPLAY_SPI_RESET_PIN   GPIO_NUM_NC
 
 #define DISPLAY_BACKLIGHT_PIN GPIO_NUM_0
-#define DISPLAY_BACKLIGHT_OUTPUT_INVERT false //最新硬件已更新为高电平有效
+#define DISPLAY_BACKLIGHT_OUTPUT_INVERT false
 
-#define DISPLAY_SPI_SCLK_PIN    GPIO_NUM_3
-#define DISPLAY_SPI_MOSI_PIN    GPIO_NUM_4
-#define DISPLAY_SPI_DC_PIN      GPIO_NUM_1
-#define DISPLAY_SPI_CS_PIN      GPIO_NUM_2
+#define AUDIO_CODEC_I2C_SCL_PIN  GPIO_NUM_5
+#define AUDIO_CODEC_I2C_SDA_PIN  GPIO_NUM_6
+
+#define AUDIO_I2S_GPIO_BCLK GPIO_NUM_8
+#define AUDIO_I2S_GPIO_DIN  GPIO_NUM_7
+
+#define BOOT_BUTTON_GPIO    GPIO_NUM_9
+
+#define AUDIO_I2S_GPIO_WS   GPIO_NUM_10
+#define AUDIO_I2S_GPIO_DOUT GPIO_NUM_20
+#define AUDIO_CODEC_PA_PIN  GPIO_NUM_21
+#define AUDIO_I2S_GPIO_MCLK GPIO_NUM_NC
 
 ```
 ### S3版本
 [emo-dot-S3-1.28 conifg](https://github.com/M-D-777/xiaozhi-esp32/blob/emo-dot/main/boards/emo-dot-s3-1.28/config.h)
 ```
-#define AUDIO_I2S_GPIO_MCLK GPIO_NUM_NC
-#define AUDIO_I2S_GPIO_WS   GPIO_NUM_5
-#define AUDIO_I2S_GPIO_BCLK GPIO_NUM_3
-#define AUDIO_I2S_GPIO_DIN  GPIO_NUM_4
-#define AUDIO_I2S_GPIO_DOUT GPIO_NUM_6
-
-#define AUDIO_CODEC_PA_PIN       GPIO_NUM_7
-#define AUDIO_CODEC_I2C_SDA_PIN  GPIO_NUM_2
-#define AUDIO_CODEC_I2C_SCL_PIN  GPIO_NUM_1
-
-#define BUILTIN_LED_GPIO        GPIO_NUM_48
-#define BOOT_BUTTON_GPIO        GPIO_NUM_0
+#define DISPLAY_SPI_MOSI_PIN    GPIO_NUM_13
+#define DISPLAY_SPI_SCLK_PIN    GPIO_NUM_12
+#define DISPLAY_SPI_CS_PIN      GPIO_NUM_11
+#define DISPLAY_SPI_DC_PIN      GPIO_NUM_10
+#define DISPLAY_SPI_RESET_PIN   GPIO_NUM_NC
 
 #define DISPLAY_BACKLIGHT_PIN GPIO_NUM_9
-#define DISPLAY_BACKLIGHT_OUTPUT_INVERT false //最新硬件已更新为高电平有效
+#define DISPLAY_BACKLIGHT_OUTPUT_INVERT false
 
-#define DISPLAY_SPI_SCLK_PIN    GPIO_NUM_12
-#define DISPLAY_SPI_MOSI_PIN    GPIO_NUM_13
-#define DISPLAY_SPI_DC_PIN      GPIO_NUM_10
-#define DISPLAY_SPI_CS_PIN      GPIO_NUM_11
-#define DISPLAY_SPI_RESET_PIN   GPIO_NUM_NC
+#define AUDIO_CODEC_I2C_SCL_PIN  GPIO_NUM_1
+#define AUDIO_CODEC_I2C_SDA_PIN  GPIO_NUM_2
+
+#define AUDIO_I2S_GPIO_BCLK GPIO_NUM_3
+#define AUDIO_I2S_GPIO_DIN  GPIO_NUM_4
+#define AUDIO_I2S_GPIO_WS   GPIO_NUM_5
+#define AUDIO_I2S_GPIO_DOUT GPIO_NUM_6
+#define AUDIO_I2S_GPIO_MCLK GPIO_NUM_NC
+
+#define BOOT_BUTTON_GPIO        GPIO_NUM_7
+#define AUDIO_CODEC_PA_PIN       GPIO_NUM_8
 
 ```
 ## 后续规划
